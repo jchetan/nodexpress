@@ -29,18 +29,6 @@ app.get(
     }
 );
 
-// GET /data
-app.get(
-    "/data", 
-    (req, res) => {
-        const test = {
-            title: "Test",
-            items: ["one", "two", "three"]
-        };
-        res.render("data", { model: test });
-    }
-);
-
 // GET /books
 app.get("/books", (req, res) => {
     const sql = "SELECT * FROM Books ORDER BY Title"
