@@ -132,17 +132,7 @@ const sql_create = `CREATE TABLE IF NOT EXISTS Books (
     console.log("Successful creation of the 'Books' table");
   });
 
-// Database seeding
-const sql_insert = `INSERT INTO Books (Book_ID, Title, Author, Comments) VALUES
-(1, 'Mrs. Bridge', 'Evan S. Connell', 'First in the serie'),
-(2, 'Mr. Bridge', 'Evan S. Connell', 'Second in the serie'),
-(3, 'L''ingénue libertine', 'Colette', 'Minne + Les égarements de Minne');`;
-db.run(sql_insert, err => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log("Successful creation of 3 books");
-});
+
 
 // Starting the server
 const port = process.env.PORT || 5000;
