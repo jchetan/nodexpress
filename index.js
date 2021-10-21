@@ -78,6 +78,26 @@ app.post("/edit/:id", (req, res) => {
     });
   });
 
+// GET /delete/5
+app.get("/delete/:id", (req, res) => {
+    const id = req.params.id;
+    const sql = "SELECT * FROM Books WHERE Book_ID = ?";
+    db.get(sql, id, (err, row) => {
+      // if (err) ...
+      res.render("delete", { model: row });
+    });
+});
+
+// POST /delete/5
+app.post("/delete/:id", (req, res) => {
+    const id = req.params.id;
+    const sql = "DELETE FROM Books WHERE Book_ID = ?";
+    db.run(sql, id, err => {
+      // if (err) ...
+      res.redirect("/books");
+    });
+});
+
 // GET /edit/5
 app.get("/edit/:id", (req, res) => {
     const id = req.params.id;
